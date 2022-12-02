@@ -3,6 +3,7 @@ use std::env;
 use std::time::Instant;
 
 mod day1;
+mod day2;
 mod input;
 
 trait Solution {
@@ -25,10 +26,13 @@ fn read_day_from_args() -> Option<u8> {
 }
 
 fn solutions() -> HashMap<u8, Box<dyn Solution>> {
-    [Box::new(day1::Day1) as Box<dyn Solution>]
-        .into_iter()
-        .map(|solution| (solution.day(), solution))
-        .collect()
+    [
+        Box::new(day1::Day1) as Box<dyn Solution>,
+        Box::new(day2::Day2),
+    ]
+    .into_iter()
+    .map(|solution| (solution.day(), solution))
+    .collect()
 }
 
 fn main() {
