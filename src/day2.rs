@@ -1,13 +1,11 @@
 use lazy_static::lazy_static;
 use std::str::FromStr;
 
-use crate::input::{read_lines_from_file, ParseExt};
+use crate::input::{read_lines_from_file, FilterNotEmpty, ParseExt};
 use crate::Solution;
 
 lazy_static! {
-    static ref LINES: Vec<String> = read_lines_from_file("day2")
-        .filter(|line| !line.is_empty())
-        .collect();
+    static ref LINES: Vec<String> = read_lines_from_file("day2").filter_not_empty().collect();
 }
 
 pub struct Day2;
@@ -180,7 +178,7 @@ fn play_game(rounds: impl IntoIterator<Item = Round>) -> (u32, u32) {
 #[cfg(test)]
 mod test {
     use super::*;
-    use crate::input::{read_lines, ParseExt};
+    use crate::input::read_lines;
 
     static EXAMPLE: &str = r"
 A Y
@@ -190,9 +188,7 @@ C Z
 
     #[test]
     fn part1_example() {
-        let rounds = read_lines(EXAMPLE.as_bytes())
-            .filter(|line| !line.is_empty())
-            .parse();
+        let rounds = read_lines(EXAMPLE.as_bytes()).filter_not_empty().parse();
 
         let result = play_game(rounds);
 
@@ -202,7 +198,7 @@ C Z
     #[test]
     fn part2_example() {
         let rounds = read_lines(EXAMPLE.as_bytes())
-            .filter(|line| !line.is_empty())
+            .filter_not_empty()
             .parse::<Strategy>()
             .map(|strategy| strategy.into());
 

@@ -1,32 +1,22 @@
 use std::fmt::Debug;
 use std::fs::File;
 use std::io::{BufRead, BufReader, Read};
+use std::iter::Filter;
 use std::marker::PhantomData;
 use std::str::FromStr;
 
-/*pub trait Parse {
-    fn parse<T>(self) -> Vec<T>
-    where
-        T: FromStr,
-        T::Err: Debug;
+pub trait FilterNotEmpty: Iterator + Sized {
+    fn filter_not_empty(self) -> Filter<Self, fn(&String) -> bool>;
 }
 
-impl<I, U> Parse for I
+impl<I> FilterNotEmpty for I
 where
-    I: Iterator<Item = U>,
-    U: ToString,
+    I: Iterator<Item = String>,
 {
-    fn parse<T>(self) -> Vec<T>
-    where
-        T: FromStr,
-        T::Err: Debug,
-    {
-        self.map(|line| line.to_string().parse())
-            .filter(Result::is_ok)
-            .map(Result::unwrap)
-            .collect()
+    fn filter_not_empty(self) -> Filter<Self, fn(&String) -> bool> {
+        self.filter(|s| !s.is_empty())
     }
-}*/
+}
 
 pub struct Parse<I, T>(I, PhantomData<T>);
 
