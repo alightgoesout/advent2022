@@ -1,5 +1,4 @@
 use std::fmt::Debug;
-use std::fs::File;
 use std::io::{BufRead, BufReader, Read};
 use std::iter::Filter;
 use std::marker::PhantomData;
@@ -49,9 +48,5 @@ pub fn read_lines<R: Read>(reader: R) -> impl Iterator<Item = String> {
     buf_reader
         .lines()
         .filter(Result::is_ok)
-        .map(|line| line.unwrap().trim().to_string())
-}
-
-pub fn read_lines_from_file(name: &str) -> impl Iterator<Item = String> {
-    read_lines(File::open(format!("src/input/{}", name)).unwrap())
+        .map(|line| line.unwrap())
 }

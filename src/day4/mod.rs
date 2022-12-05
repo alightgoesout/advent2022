@@ -3,11 +3,13 @@ use std::str::FromStr;
 
 use lazy_static::lazy_static;
 
-use crate::input::{read_lines_from_file, FilterNotEmpty, ParseExt};
+use crate::input::{read_lines, FilterNotEmpty, ParseExt};
 use crate::Solution;
 
+mod input;
+
 lazy_static! {
-    static ref ASSIGNMENT_PAIRS: Vec<AssignmentPair> = read_lines_from_file("day4")
+    static ref ASSIGNMENT_PAIRS: Vec<AssignmentPair> = read_lines(input::INPUT)
         .filter_not_empty()
         .parse()
         .collect();

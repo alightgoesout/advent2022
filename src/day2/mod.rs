@@ -1,11 +1,13 @@
 use lazy_static::lazy_static;
 use std::str::FromStr;
 
-use crate::input::{read_lines_from_file, FilterNotEmpty, ParseExt};
+use crate::input::{read_lines, FilterNotEmpty, ParseExt};
 use crate::Solution;
 
+mod input;
+
 lazy_static! {
-    static ref LINES: Vec<String> = read_lines_from_file("day2").filter_not_empty().collect();
+    static ref LINES: Vec<String> = read_lines(input::INPUT).filter_not_empty().collect();
 }
 
 pub struct Day2;

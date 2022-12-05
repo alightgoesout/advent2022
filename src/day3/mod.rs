@@ -4,11 +4,13 @@ use std::iter::Chain;
 use std::slice::Iter;
 use std::str::FromStr;
 
-use crate::input::{read_lines_from_file, FilterNotEmpty, ParseExt};
+use crate::input::{read_lines, FilterNotEmpty, ParseExt};
 use crate::Solution;
 
+mod input;
+
 lazy_static! {
-    static ref RUCKSACKS: Vec<Rucksack> = read_lines_from_file("day3")
+    static ref RUCKSACKS: Vec<Rucksack> = read_lines(input::INPUT)
         .filter_not_empty()
         .parse()
         .collect();

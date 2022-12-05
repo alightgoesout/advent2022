@@ -1,3 +1,4 @@
+pub const INPUT: &[u8] = b"
 C Y
 C Z
 C Z
@@ -2498,3 +2499,4 @@ A Z
 C Z
 C Z
 A Z
+";

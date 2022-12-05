@@ -1,3 +1,4 @@
+pub const INPUT: &[u8] = b"\
 WjmsdnddnmQPZPPJPL
 bQllTtpBlgwtrbbCwfZcfSFPSfLCSF
 GgVgQrlpphBGrlVGgTtsRHRWVRMzRdVsqdnDnV
@@ -298,3 +299,4 @@ qvzHqHLHmHgPsNBdCdZtVBtVVMBFbh
 CctrCwrdpTwcpVrdpTpcrcnSJQttvQPHJQNQnQNjvvHQ
 zsqRlslRLqfgRmWsRgRzqzQnHjSBSQWJHPhHnSvHnJJJ
 GRgllbgfRgbzfRmwwcGdFMcTVPrFCF
+";

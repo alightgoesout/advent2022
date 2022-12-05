@@ -1,9 +1,11 @@
-use crate::input::read_lines_from_file;
+use crate::input::read_lines;
 use crate::Solution;
 use lazy_static::lazy_static;
 
+mod input;
+
 lazy_static! {
-    static ref CALORIES: Vec<Calories> = parse_calories(read_lines_from_file("day1"));
+    static ref CALORIES: Vec<Calories> = parse_calories(read_lines(input::INPUT));
 }
 
 pub struct Day1;
