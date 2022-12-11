@@ -3,6 +3,7 @@ use std::env;
 use std::time::Instant;
 
 mod day1;
+mod day10;
 mod day2;
 mod day3;
 mod day4;
@@ -43,6 +44,7 @@ fn solutions() -> HashMap<u8, Box<dyn Solution>> {
         Box::new(day7::Day7),
         Box::new(day8::Day8),
         Box::new(day9::Day9),
+        Box::new(day10::Day10),
     ]
     .into_iter()
     .map(|solution| (solution.day(), solution))
