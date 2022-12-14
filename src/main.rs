@@ -9,6 +9,7 @@ mod day10;
 mod day11;
 mod day12;
 mod day13;
+mod day14;
 mod day2;
 mod day3;
 mod day4;
@@ -28,9 +29,13 @@ trait Solution {
         let day = self.day();
         let start = Instant::now();
         println!("{day}:1 — {}", self.part_one());
+        let part1_duration = start.elapsed();
+        println!("Part 1 in {}ms", part1_duration.as_millis());
         println!("{day}:2 — {}", self.part_two());
-        let duration = start.elapsed();
-        println!("Done in {}ms", duration.as_millis());
+        let part2_duration = start.elapsed() - part1_duration;
+        println!("Part 1 in {}ms", part2_duration.as_millis());
+        let total_duration = start.elapsed();
+        println!("Done in {}ms", total_duration.as_millis());
     }
 }
 
@@ -53,6 +58,7 @@ fn solutions() -> HashMap<u8, Box<dyn Solution>> {
         Box::new(day11::Day11),
         Box::new(day12::Day12),
         Box::new(day13::Day13),
+        Box::new(day14::Day14),
     ]
     .into_iter()
     .map(|solution| (solution.day(), solution))
